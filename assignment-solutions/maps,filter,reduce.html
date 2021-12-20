@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps,Filter,Reduce</title>
+</head>
+
+<body>
+    <script>
+        let users = [
+            { "name": "sneha" },
+            { "name": "anil" },
+            { "name": "annsh" },
+            { "name": "ramesh" },
+            { "name": "anshika" },
+            { "name": "sarita" }
+        ]
+        //map test
+        let resultDetails = users.map(user => {
+            user.marks = Math.random() * 100;
+            return user;
+        })
+        console.log(resultDetails)
+        //filter select candidates above 60%
+        let selectedCandidate = resultDetails.filter(user => {
+            if (user.marks > 60) {
+                return user;
+            }
+        })
+            console.log(selectedCandidate)
+            //reduce create team for selected candidate
+            let teamMembers = selectedCandidate.reduce((teamMembers, user) => {
+                teamMembers.push(user);
+                return teamMembers;
+            }, [])
+            console.log(teamMembers)
+    </script>
+</body>
+
+</html>
